@@ -16,7 +16,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity{
+import WebService.Asynchtask;
+import WebService.WebServices;
+
+public class MainActivity extends AppCompatActivity implements Asynchtask{
 
     private TextView txtContact;
     private ListView LstOpciones;
