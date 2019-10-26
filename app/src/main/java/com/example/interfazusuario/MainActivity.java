@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AdaptadorNoticias adaptadornoticias = new AdaptadorNoticias(this, noticias);
-
         LstOpciones = (ListView)findViewById(R.id.lstLista);
-        LstOpciones.setAdapter(adaptadornoticias);
 
         View header = getLayoutInflater().inflate(R.layout.ly_cabecera, null);
         LstOpciones.addHeaderView(header);
+        Map<String, String> datos = new HashMap<String, String>();
+        WebServices ws= new WebServices("https://api.androidhive.info/contacts/",datos,MainActivity.this, MainActivity.this);
+        ws.execute("");
     }
     public Noticias[] noticias;
 
@@ -75,8 +75,7 @@ public class MainActivity extends AppCompatActivity{
             a = a + "\n";
             noticias = new Noticias[]{new Noticias(" ", a)
             };
-            txtContact.setText(a);
-            txtContact.setVisibility(View.VISIBLE);
+            
         }
         View header = getLayoutInflater().inflate(R.layout.ly_cabecera, null);
         LstOpciones.addHeaderView(header);
